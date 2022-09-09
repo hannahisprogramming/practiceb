@@ -15,4 +15,5 @@ public class Potion {
     private long id;
     private String potion;
     private int potionHeal;
+    private String description;
 }

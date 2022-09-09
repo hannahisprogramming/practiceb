@@ -11,7 +11,8 @@ public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private  String type;
+    private String type;
+    private String description;
     private int health;
     private String attack;
     private int attackDamage;
