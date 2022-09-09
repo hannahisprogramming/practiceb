@@ -15,7 +15,7 @@ public class Avatar {
     private long id;
     private String name;
     @JoinTable(name = "types", joinColumns = {
-            @JoinColumn(name = "type", referencedColumnName = "id", nullable = false) })
+            @JoinColumn(name = "type", referencedColumnName = "type", nullable = false) })
     @ManyToMany(fetch = FetchType.LAZY)
     private String type;
     private int level;
