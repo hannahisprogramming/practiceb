@@ -1,6 +1,6 @@
 package com.hannah.practiceb.repositiories;
 
-import com.hannah.practiceb.models.User;
+import com.hannah.practiceb.models.Potion;
 
 import java.util.Optional;
 
@@ -11,5 +11,5 @@ public interface PotionRepository {
      * @param potion (String)
      * @return a potion object
      */
-    Optional<User> findByPotion(String potion);
+    Optional<Potion> findByPotion(String potion);
 }
