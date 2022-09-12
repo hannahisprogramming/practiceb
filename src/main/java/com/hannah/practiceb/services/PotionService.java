@@ -35,7 +35,7 @@ public class PotionService {
     }
 
     /**
-     * Returns an potion object with a given potion name
+     * Returns a potion object with a given potion name
      *
      * @param potion
      * @return
