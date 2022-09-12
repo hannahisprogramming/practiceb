@@ -30,11 +30,6 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Potion> potions;
 
-//    public User(UserMiniDTO dto) {
-//        this.id = dto.getId();
-//        this.username = dto.getUsername();
-//    }
-
     /**
      * Convert a UserPassDTO into a User
      * @author Hannah Bush
@@ -57,4 +52,24 @@ public class User {
 //            potions.add(new User(potion));
 //        }
 //    }
+
+    public void addAvatar(Avatar avatar) {
+        this.avatars.add(avatar);
+    }
+
+    public void removeAvatar(Avatar avatar) {
+        if (avatars.contains(avatar)) {
+            this.avatars.remove(avatar);
+        }
+    }
+
+    public void addPotion(Potion potion) {
+        this.potions.add(potion);
+    }
+
+    public void removePotion(Potion potion) {
+        if (potions.contains(potion)) {
+            this.potions.remove(potion);
+        }
+    }
 }
