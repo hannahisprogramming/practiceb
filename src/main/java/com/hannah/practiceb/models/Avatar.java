@@ -14,9 +14,6 @@ public class Avatar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @JoinTable(name = "types", joinColumns = {
-            @JoinColumn(name = "type", referencedColumnName = "type", nullable = false) })
-    @ManyToMany(fetch = FetchType.LAZY)
-    private String type;
+    private int type;
     private int level;
 }

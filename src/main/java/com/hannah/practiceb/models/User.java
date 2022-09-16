@@ -20,13 +20,9 @@ public class User {
     private String email;
     private String password;
 
-    @JoinTable(name = "avatars", joinColumns = {
-            @JoinColumn(name = "avatar_id", referencedColumnName = "id", nullable = false) })
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Avatar> avatars;
 
-    @JoinTable(name = "potions", joinColumns = {
-            @JoinColumn(name = "potion_id", referencedColumnName = "id", nullable = false) })
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Potion> potions;
 
