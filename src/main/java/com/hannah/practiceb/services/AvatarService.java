@@ -13,7 +13,6 @@ public class AvatarService {
 
     /**
      * A constructor to be used to inject dependencies
-     *
      * @param avatarRepository
      */
     public void AvatarService(AvatarRepository avatarRepository) {
@@ -22,7 +21,6 @@ public class AvatarService {
 
     /**
      * Returns an avatar object with a given id
-     *
      * @param id
      * @return
      */
@@ -36,7 +34,6 @@ public class AvatarService {
 
     /**
      * Returns an avatar object with a given name
-     *
      * @param name
      * @return
      */
@@ -49,8 +46,21 @@ public class AvatarService {
     }
 
     /**
-     * Returns a list of all avatars in the database
+     * Returns an avatar object with a given type title
      *
+     * @param type
+     * @return
+     */
+    public Avatar findByType(String type) {
+        Optional<Avatar> avatarOpt = avatarRepository.findByType(type);
+        if (avatarOpt.isPresent()) {
+            return avatarOpt.get();
+        }
+        return null;
+    }
+
+    /**
+     * Returns a list of all avatars in the database
      * @return
      */
     public List<Avatar> findAllAvatars() {

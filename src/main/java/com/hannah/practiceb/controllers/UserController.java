@@ -118,7 +118,7 @@ public class UserController {
      * @return
      */
     @Authorized
-    @GetMapping("/{id}/avatars")
+    @GetMapping("/{id}/potions")
     public ResponseEntity<Set<Potion>> getPotions(@PathVariable long id) {
         // Finding a user by id from the repository returns an optional user.
         User optUser = userService.findById(id);
