@@ -27,9 +27,15 @@ public class UserController {
     @Autowired
     Environment env;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
         this.objMapper = new ObjectMapper();
+    }
+
+    @PostMapping
+    public User newUser(User user) throws UsernameAlreadyExistsException, EmailAlreadyExistsException {
+        return userService.save(user);
     }
 
     /**
@@ -38,7 +44,7 @@ public class UserController {
      * @param id
      * @return
      */
-    @Authorized
+    //@Authorized
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUser(@PathVariable long id) {
         // Finding a user by id from the repository returns an optional user.
@@ -77,7 +83,7 @@ public class UserController {
     }
 
     // Add avatar to the logged-in user
-    @PostMapping("/{userId}/create/{avatarId}")
+    @PostMapping("/{userId}/avatars/{avatarId}")
     public ResponseEntity<UserDTO> addAvatar(@PathVariable("userId") Long userId,
                                              @PathVariable("avatarId") Long avatarId)
             throws RecordNotFoundException {
@@ -94,7 +100,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/{userId}/delete/{avatarId}")
+    @DeleteMapping("/{userId}/avatars/{avatarId}")
     public ResponseEntity<UserDTO> removeAvatar(@PathVariable("userId") Long userId,
                                                 @PathVariable("avatarId") Long avatarId)
                                                 throws RecordNotFoundException {
@@ -134,7 +140,7 @@ public class UserController {
     }
 
     // Add follower to the logged in user
-    @PostMapping("/{userId}/add/{potionId}")
+    @PostMapping("/{userId}/potions/{potionId}")
     public ResponseEntity<UserDTO> addPotion(@PathVariable("userId") Long userId,
                                              @PathVariable("potionId") Long potionId)
             throws RecordNotFoundException {
@@ -151,7 +157,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/{userId}/delete/{potionId}")
+    @DeleteMapping("/{userId}/potions/{potionId}")
     public ResponseEntity<UserDTO> removePotion(@PathVariable("userId") Long userId,
                                                 @PathVariable("potionId") Long potionId)
             throws RecordNotFoundException {

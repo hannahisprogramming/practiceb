@@ -2,6 +2,7 @@ package com.hannah.practiceb.services;
 
 import com.hannah.practiceb.models.Avatar;
 import com.hannah.practiceb.repositiories.AvatarRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

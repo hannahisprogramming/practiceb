@@ -3,6 +3,7 @@ package com.hannah.practiceb.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
@@ -11,13 +12,19 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "username")
     private String username;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -25,29 +32,6 @@ public class User {
 
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Potion> potions;
-
-    /**
-     * Convert a UserPassDTO into a User
-     * @author Hannah Bush
-     * @param //dto
-     */
-//    public User(UserPassDTO dto) {
-//        this.id = dto.getId();
-//        this.name = dto.getName;
-//        this.username = dto.getUsername();
-//        this.email = dto.getEmail();
-//        this.password = dto.getPassword();
-//
-//        this.avatars = new LinkedHashSet<>();
-//        for (UserMiniDTO avatar : dto.getAvatars()) {
-//            avatars.add(new Avatar(avatar));
-//        }
-//
-//        this.potions = new LinkedHashSet<>();
-//        for (UserMiniDTO potion : dto.getPotions()) {
-//            potions.add(new User(potion));
-//        }
-//    }
 
     public void addAvatar(Avatar avatar) {
         this.avatars.add(avatar);

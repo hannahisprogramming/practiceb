@@ -10,6 +10,7 @@ import com.hannah.practiceb.models.User;
 import com.hannah.practiceb.repositiories.AvatarRepository;
 import com.hannah.practiceb.repositiories.PotionRepository;
 import com.hannah.practiceb.repositiories.UserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

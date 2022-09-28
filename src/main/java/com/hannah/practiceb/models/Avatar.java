@@ -13,7 +13,10 @@ public class Avatar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "type")
     private int type;
+    @Column(name = "level")
     private int level;
 }

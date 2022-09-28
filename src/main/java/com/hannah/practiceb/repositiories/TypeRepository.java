@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
+@Repository("type")
 public interface TypeRepository extends JpaRepository<Type, Long> {
     /**
      * Returns a type object based on a given type name
